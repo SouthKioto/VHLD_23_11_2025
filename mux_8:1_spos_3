@@ -1,0 +1,36 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity mux8_1_3_spos is
+    port(
+        d : in  std_logic_vector(7 downto 0);
+        sel : in std_logic_vector(2 downto 0);
+        y : out std_logic
+    );
+end mux8_1_3_spos;
+
+architecture rtl of mux8_1_3_spos is
+begin
+    process(d, sel)
+    begin
+        if sel = "000" then
+            y <= d(0);
+        elsif sel = "001" then
+            y <= d(1);
+        elsif sel = "010" then
+            y <= d(2);
+        elsif sel = "011" then
+            y <= d(3);
+        elsif sel = "100" then
+            y <= d(4);
+        elsif sel = "101" then
+            y <= d(5);
+        elsif sel = "110" then
+            y <= d(6);
+        elsif sel = "111" then
+            y <= d(7);
+        else
+            y <= '0';
+        end if;
+    end process;
+end rtl;
